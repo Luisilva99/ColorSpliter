@@ -203,27 +203,6 @@ public class Main {
             // Save as PNG
             File imagePart = new File("splitImages/colorImageFused.png");
             ImageIO.write(imageColorPart, "png", imagePart);
-
-            /*for (Color color : colorMap.keySet()) {
-                // Constructs a BufferedImage of one of the predefined image types.
-                BufferedImage imageColorPart = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_INT_RGB);
-
-                // Create a graphics which can be used to draw into the buffered image
-                Graphics2D g2d = imageColorPart.createGraphics();
-
-                for (int[] pixelLocation : colorMap.get(color)) {
-                    // fill all the image with white
-                    g2d.setColor(color);
-                    g2d.fillRect(pixelLocation[0], pixelLocation[1], 1, 1);
-                }
-
-                // Disposes of this graphics context and releases any system resources that it is using.
-                g2d.dispose();
-
-                // Save as PNG
-                File imagePart = new File("splitImages/colorImage" + imageNamePart++ + ".png");
-                ImageIO.write(imageColorPart, "png", imagePart);
-            }*/
         } catch (IOException e) {
             String workingDir = System.getProperty("user.dir");
             System.out.println("Current working directory : " + workingDir);
