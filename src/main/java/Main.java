@@ -75,7 +75,7 @@ public class Main {
         HashMap<Color, List<int[]>> colorMap = new HashMap<>();
         int imageWidth, imageHeight;
         try {
-            //file = new File("src/main/resources/maxresdefault.bmp");
+            //file = new File("src/main/resources/default_meme.bmp");
             //file = new File("src/main/resources/pine_tree.png");
             //file = new File("src/main/resources/2_color_test.bmp");
             file = new File("src/main/resources/mosaic.png");
@@ -83,6 +83,7 @@ public class Main {
             BufferedImage image = ImageIO.read(file);
             imageWidth = image.getWidth();
             imageHeight = image.getHeight();
+
             for (int i = 0; image.getWidth() > i; i++) {
                 for (int j = 0; image.getHeight() > j; j++) {
                     Color pixel = new Color(image.getRGB(i, j));
@@ -118,21 +119,16 @@ public class Main {
 
             for (Color colorList : colorMap.keySet()) {
                 int rgbaCurrentValue = (colorList.getRed() + colorList.getGreen() + colorList.getBlue());
-                if (colorMap.get(colorList).size() <= colorPixelLimit && Math.abs((rgbaLastValue - rgbaCurrentValue)) <= colorClusterDisparity) {
-                    if (!colorAuxMap.containsKey(colorCluster)) {
-                        colorAuxMap.put(colorCluster, new ArrayList<>());
-                    }
 
-                    colorAuxMap.get(colorCluster).addAll(colorMap.get(colorList));
-                } else {
+                if (colorMap.get(colorList).size() > colorPixelLimit || Math.abs((rgbaLastValue - rgbaCurrentValue)) > colorClusterDisparity) {
                     colorCluster = colorList;
-
-                    if (!colorAuxMap.containsKey(colorCluster)) {
-                        colorAuxMap.put(colorCluster, new ArrayList<>());
-                    }
-
-                    colorAuxMap.get(colorCluster).addAll(colorMap.get(colorList));
                 }
+
+                if (!colorAuxMap.containsKey(colorCluster)) {
+                    colorAuxMap.put(colorCluster, new ArrayList<>());
+                }
+
+                colorAuxMap.get(colorCluster).addAll(colorMap.get(colorList));
 
                 rgbaLastValue = rgbaCurrentValue;
             }
