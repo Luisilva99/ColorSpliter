@@ -77,11 +77,8 @@ public class Main {
         try {
             //file = new File("src/main/resources/maxresdefault.bmp");
             //file = new File("src/main/resources/pine_tree.png");
-            //file = new File("src/main/resources/Spiritfarer_Wallpaper_Mobile_01_v2.bmp");
-            file = new File("src/main/resources/Spiritfarer_Wallpaper_Mobile_02.png");
-            //file = new File("src/main/resources/Spiritfarer_Wallpaper_Mobile_01.bmp");
             //file = new File("src/main/resources/2_color_test.bmp");
-            //file = new File("src/main/resources/mosaic.png");
+            file = new File("src/main/resources/mosaic.png");
             //file = new File("src/main/resources/tree_sample.png");
             BufferedImage image = ImageIO.read(file);
             imageWidth = image.getWidth();
