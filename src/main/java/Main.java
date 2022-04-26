@@ -174,7 +174,7 @@ public class Main {
                 g2d.dispose();
 
                 // Save as PNG
-                File imagePart = new File("splitImages/colorImage" + colorSection + ".png");
+                File imagePart = new File("src/splitImages/colorImage" + colorSection + ".png");
                 ImageIO.write(imageColorPart, "png", imagePart);
             }
 
@@ -201,7 +201,7 @@ public class Main {
             g2d.dispose();
 
             // Save as PNG
-            File imagePart = new File("splitImages/colorImageFused.png");
+            File imagePart = new File("src/splitImages/colorImageFused.png");
             ImageIO.write(imageColorPart, "png", imagePart);
         } catch (IOException e) {
             String workingDir = System.getProperty("user.dir");

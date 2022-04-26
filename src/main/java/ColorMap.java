@@ -60,7 +60,7 @@ public class ColorMap {
         return colorMap.get(color);
     }
 
-    public HashMap<Color, List<int[]>> trimColorDistribution(int colorPixelLimit, int colorClusterDisparity) throws Exception {
+    public HashMap<Color, List<int[]>> trimColorDistribution(int colorPixelLimit, int colorClusterDisparity) {
         HashMap<Color, List<int[]>> colorAuxMap = new HashMap<>();
         Color colorCluster = new ArrayList<>(colorMap.keySet()).get(0);
         int rgbaLastValue = 0;
@@ -119,7 +119,7 @@ public class ColorMap {
             g2d.dispose();
 
             // Save as PNG
-            File imagePart = new File("splitImages/colorImage" + colorSection + ".png");
+            File imagePart = new File("src/splitImages/colorImage" + colorSection + ".png");
             ImageIO.write(imageColorPart, "png", imagePart);
         }
 
@@ -146,13 +146,13 @@ public class ColorMap {
         g2d.dispose();
 
         // Save as PNG
-        File imagePart = new File("splitImages/colorImageFused.png");
+        File imagePart = new File("src/splitImages/colorImageFused.png");
         ImageIO.write(imageColorPart, "png", imagePart);
     }
 
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder("");
+        StringBuilder str = new StringBuilder();
 
         for (Color color : colorMap.keySet()) {
             str.append("-----------------------------");
